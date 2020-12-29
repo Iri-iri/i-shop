@@ -27,7 +27,7 @@ const products = [
   },
   {
     _id: '3',
-    name: 'HomePod',
+    name: 'HomePod with the latest version of software',
     image: '/images/homepod.jpg',
     description:
       'HomePod is a breakthrough speaker that adapts to its location and delivers high-fidelity audio wherever it’s playing.',
@@ -40,7 +40,7 @@ const products = [
   },
   {
     _id: '4',
-    name: 'MacBook Pro 13" ',
+    name: 'MacBook Pro 13" with 8-core CPU',
     image: '/images/macbookpro.jpg',
     description:
       '13.3-inch (diagonal) LED-backlit display with IPS technology; 2560-by-1600 native resolution at 227 pixels per inch with support for millions of colors',
@@ -53,7 +53,7 @@ const products = [
   },
   {
     _id: '5',
-    name: 'Ipad Air',
+    name: 'Ipad Air with a 10.9‑inch Liquid Retina display',
     image: '/images/ipad.jpg',
     description:
       'An all-screen design with a stunning 10.9‑inch Liquid Retina display',
@@ -66,7 +66,7 @@ const products = [
   },
   {
     _id: '6',
-    name: 'Apple Watch Series 4',
+    name: 'Apple Watch for all your ups and downs',
     image: '/images/watch.jpg',
     description:
       'The future of health is on your wrist',
