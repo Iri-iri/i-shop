@@ -27,7 +27,7 @@ const ProductPage = ({ match }) => {
                 value={product.rating}
                 reviews={`${product.numReviews} reviews`}
               ></Rating>
-            </Card.Text>
+            </Card.Text> 
 
             <Card.Text as='h3'>${product.price}</Card.Text>
 
