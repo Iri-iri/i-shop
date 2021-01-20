@@ -16,7 +16,7 @@ import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions';
 
 const ProductPage = ({ history, match }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const dispatch = useDispatch();
 
