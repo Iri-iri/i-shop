@@ -6,30 +6,26 @@ import {
   Col,
   ListGroup,
   Image,
-  Form,
   Button,
-  Card,
 } from 'react-bootstrap';
 import Message from '../components/Message';
-import { addToCart } from '../actions/cartActions';
+import { addToFavorites } from '../actions/favoritesActions';
 
-const CartPage = ({ match, location, history }) => {
+const FavoritesPage = ({ match, location, history }) => {
   const productId = match.params.id;
-
-  const count = location.search ? Number(location.search.split('=')[1]) : 1;
 
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const favorites = useSelector((state) => state.favorites);
+  const { favoritesItems } = favorites;
 
-  console.log(cartItems);
+  console.log(favoritesItems);
 
   useEffect(() => {
     if (productId) {
-      dispatch(addToCart(productId, count));
+      dispatch(addToFavorites(productId));
     }
-  }, [dispatch, productId, count]);
+  }, [dispatch, productId]);
 
   const removeFromCartHandler = (id) => {
     console.log('remove')
@@ -38,14 +34,14 @@ const CartPage = ({ match, location, history }) => {
   return (
     <Row>
       <Col md={8}>
-        <h1>Shopping Cart</h1>
-        {cartItems.length === 0 ? (
+        <h1>Favorites List</h1>
+        {favoritesItems.length === 0 ? (
           <Message>
-            Your cart is empty <Link to='/'>Go Back</Link>
+            Your favorites list is empty <Link to='/'>Go Back</Link>
           </Message>
         ) : (
           <ListGroup variant='flush'>
-            {cartItems.map((item) => (
+            {favoritesItems.map((item) => (
               <ListGroup.Item key={item.product}>
                 <Row>
                   <Col className='wrapper__col' md={2}>
@@ -60,23 +56,7 @@ const CartPage = ({ match, location, history }) => {
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
                   <Col className='wrapper__col' md={2}>${item.price}</Col>
-                  <Col md={2}>
-                    <Form.Control className='wrapper__form'
-                      as='select'
-                      value={item.count}
-                      onChange={(e) =>
-                        dispatch(
-                          addToCart(item.product, Number(e.target.value))
-                        )
-                      }
-                    >
-                      {[...Array(item.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </Form.Control>
-                  </Col>
+                  
                   <Col md={2}>
                     <Button className='wrapper__btn' type='button' variant='danger' onClick={()=> removeFromCartHandler(item.product)}>
                       <i className='fas fa-trash'></i>
@@ -93,4 +73,4 @@ const CartPage = ({ match, location, history }) => {
   );
 };
 
-export default CartPage;
+export default FavoritesPage;

@@ -6,17 +6,21 @@ import {
   productDetailsReducer,
 } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducers';
+import { favoritesReducer } from './reducers/favoritesReducers';
 
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
+  favorites: favoritesReducer,
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+const favoritesItemsFromStorage = localStorage.getItem('favoritesItems') ? JSON.parse(localStorage.getItem('favoritesItems')) : []
 
 const initialState = {
-  cart: {cartItems: cartItemsFromStorage }
+  cart: {cartItems: cartItemsFromStorage },
+  favorites: {favoritesItems: favoritesItemsFromStorage }
 }
 
 const middleware = [thunk];

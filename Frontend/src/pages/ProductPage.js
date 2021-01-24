@@ -31,6 +31,10 @@ const ProductPage = ({ history, match }) => {
     history.push(`/cart/${match.params.id}?count=${count}`)
   }
 
+  const addToFavoritesHandler = () => {
+    history.push(`/favorites/${match.params.id}`)
+  }
+
   return (
     <>
       <Link className='btn btn-dark my-3' to='/'>
@@ -109,9 +113,11 @@ const ProductPage = ({ history, match }) => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button
+                onClick= {addToFavoritesHandler}
                   className='btn-block'
                   type='button'
                   variant='outline-warning'
+                  // disabled={product.countInStock === 0}
                 >
                   Add To Favorities
                 </Button>
