@@ -15,6 +15,8 @@ const reducer = combineReducers({
   favorites: favoritesReducer,
 });
 
+// localStorage.clear();
+
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 const favoritesItemsFromStorage = localStorage.getItem('favoritesItems') ? JSON.parse(localStorage.getItem('favoritesItems')) : []
 
