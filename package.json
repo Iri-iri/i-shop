@@ -1,0 +1,27 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "Shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node Backend/server",
+    "server": "nodemon Backend/server",
+    "client": "npm start --prefix Frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iri-iri/i-shop.git"
+  },
+  "author": "Irina Levkovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iri-iri/i-shop/issues"
+  },
+  "homepage": "https://github.com/Iri-iri/i-shop#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}

@@ -10,4 +10,13 @@
   }
 }
 
+.wrapper{
+  &__btn,
+  &__form,
+  &__col {
+    margin-top: 10px;
+  }
+}
+
+
 
