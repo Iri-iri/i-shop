@@ -9,7 +9,7 @@ import {
   Button,
 } from 'react-bootstrap';
 import Message from '../components/Message';
-import { addToFavorites } from '../actions/favoritesActions';
+import { addToFavorites, removeFromFavorites } from '../actions/favoritesActions';
 
 const FavoritesPage = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -28,7 +28,7 @@ const FavoritesPage = ({ match, location, history }) => {
   }, [dispatch, productId]);
 
   const removeFromCartHandler = (id) => {
-    console.log('remove')
+      dispatch(removeFromFavorites(id))
   }
 
   return (

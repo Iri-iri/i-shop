@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FAVORITES_ADD_ITEM } from '../constants/favoritesConstants'
+import { FAVORITES_ADD_ITEM, FAVORITES_REMOVE_ITEM } from '../constants/favoritesConstants'
 
 export const addToFavorites = (id) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/products/${id}`)
@@ -15,5 +15,13 @@ export const addToFavorites = (id) => async (dispatch, getState) => {
     }
   })
 
-  localStorage.setItem('favoritesItem', JSON.stringify(getState().favorites.favoritesItem))
+  localStorage.setItem('favoritesItem', JSON.stringify(getState().favorites.favoritesItems))
+}
+
+export const removeFromFavorites = (id) => (dispatch, getState) => {
+  dispatch({
+    type: FAVORITES_REMOVE_ITEM,
+    payload: id
+  })
+  localStorage.setItem('favoritesItems', JSON.stringify(getState().favorites.favoritesItems))
 }
