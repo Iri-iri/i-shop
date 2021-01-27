@@ -8,6 +8,7 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import PhonePage from './pages/PhonePage';
 import FavoritesPage from './pages/FavoritesPage';
+import LoginPage from './pages/LoginPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/cart/:id?' component={CartPage} />
           <Route path='/favorites/:id?' component={FavoritesPage} />
           <Route path='/phone' component={PhonePage} />
+          <Route path='/login' component={LoginPage} />
         </Container>
       </main>
       <Footer />
